@@ -16,10 +16,22 @@ export const useClientsStore = defineStore({
       }
     },
 
+    async getById (id) {
+      try {
+        // API: Get Client by Id
+        const client = this.clients.find(x => x.id == id)
+        this.client = client
+        return client
+      } catch(error) {
+        throw error
+      }
+    },
+
     async create (data) {
       try {
         const uuidv4 = '10000000-1000-4000-8000-100000000000'.replace(/[018]/g, c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16))
-        const client = { id: uuidv4, ...data}
+        const client = { ...data, id: uuidv4 }
+        this.client = client
         // API: Add Client
         this.clients.push(client)
         return client
@@ -31,9 +43,9 @@ export const useClientsStore = defineStore({
     async update (id, params) {
       // API: Update Client
 			if (id === this.client.id) {
-				this.client = {...this.client, ...params}
+				this.client = { ...this.client, ...params}
       }
-			this.clients = this.clients.map(c => (c.id === id ? data : c))
+			this.clients = this.clients.map(c => (c.id === id ? this.client : c))
     },
 
     async delete (id) {

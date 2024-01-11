@@ -30,6 +30,7 @@ export const useClientsStore = defineStore({
     async create (data) {
       try {
         const uuidv4 = '10000000-1000-4000-8000-100000000000'.replace(/[018]/g, c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16))
+        data.picture = data.picture ? data.picture : `https://api.lorem.space/image/face?w=120&h=120&hash=${uuidv4}`
         const client = { ...data, id: uuidv4 }
         this.client = client
         // API: Add Client
@@ -52,6 +53,18 @@ export const useClientsStore = defineStore({
       // API: Delete Client
       this.clients = this.clients.filter(x => x.id !== id)
     },
+
+    async addClientProduct (idProduto) {
+      this.client.products.push(idProduto)
+			this.clients = this.clients.map(c => (c.id === idProduto ? this.client : c))
+      return this.client
+    },
+
+    async removeClientProduct (idProduto) {
+      this.client.products = this.client.products.filter(p => p !== idProduto)
+			this.clients = this.clients.map(c => (c.id === idProduto ? this.client : c))
+      return this.client
+    }
 
   }
 })

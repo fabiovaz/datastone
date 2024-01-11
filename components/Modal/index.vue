@@ -51,13 +51,7 @@ onMounted(() => {
     <div tabindex="0" ref="modalRef" class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-full justify-center items-center flex" @keyup.esc="closeWithEsc" @click.self="clickOutside">
       <div class="relative flex my-auto justify-center p-4 w-full h-auto" :class="`${modalSizeClasses[size]}`">
         <!-- Modal content -->
-        <div class="relative w-full bg-white/75 backdrop-blur rounded-lg shadow-xl shadow-black/25">
-          <!-- Modal body -->
-          <div class="p-8">
-            <slot />
-          </div>
-
-        </div>
+        <slot />
       </div>
     </div>
   </div>

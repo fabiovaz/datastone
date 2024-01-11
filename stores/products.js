@@ -20,8 +20,8 @@ export const useProductsStore = defineStore({
       try {
         // API: Get Product by Id
         const product = this.products.find(x => x.id == id)
-        this.product = client
-        return client
+        this.product = product
+        return product
       } catch(error) {
         throw error
       }
@@ -51,7 +51,7 @@ export const useProductsStore = defineStore({
     async delete (id) {
       // API: Delete product
       this.products = this.products.filter(x => x.id !== id)
-    },
+    }
 
   }
 })

@@ -1,13 +1,15 @@
-# Nuxt 3 Minimal Starter
+# Datastone
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+O projeto foi concebido em Nuxt, como a ideia inicial era fazer apenas front, todo o desenvolvimento foi realizado nele, a adição de clientes e produtos ficam salvos na store, utilizando a biblioteca pinia.
 
-## Setup
+Os commits foram feitos em etapas para tentar deixar claro o processo de desenvolvimento.
 
-Make sure to install the dependencies:
+## Configurar
+
+Certifique-se de instalar as dependências:
 
 ```bash
-# npm
+#npm
 npm install
 
 # pnpm
@@ -16,16 +18,15 @@ pnpm install
 # yarn
 yarn install
 
-# bun
-bun install
-```
+#bun
+bun install```
 
-## Development Server
+## Servidor de Desenvolvimento
 
-Start the development server on `http://localhost:3000`:
+Inicie o servidor de desenvolvimento em `http://localhost:3000`:
 
 ```bash
-# npm
+#npm
 npm run dev
 
 # pnpm
@@ -34,16 +35,16 @@ pnpm run dev
 # yarn
 yarn dev
 
-# bun
+#bun
 bun run dev
 ```
 
-## Production
+##Produção
 
-Build the application for production:
+Crie o aplicativo para produção:
 
 ```bash
-# npm
+#npm
 npm run build
 
 # pnpm
@@ -52,14 +53,14 @@ pnpm run build
 # yarn
 yarn build
 
-# bun
+#bun
 bun run build
 ```
 
-Locally preview production build:
+Visualize localmente a versão de produção:
 
 ```bash
-# npm
+#npm
 npm run preview
 
 # pnpm
@@ -68,8 +69,6 @@ pnpm run preview
 # yarn
 yarn preview
 
-# bun
+#bun
 bun run preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
